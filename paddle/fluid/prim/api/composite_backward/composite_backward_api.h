@@ -1542,6 +1542,7 @@ void scatter_nd_add_grad(const Tensor& index,
                slice_bytes);
       }
     }
+    set_output<T>(p_output, x_grad);
   }
 }
 }  // namespace prim
