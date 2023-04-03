@@ -1443,9 +1443,9 @@ void scatter_nd_add_grad(const Tensor& index,
                          const Tensor& updates,
                          const Tensor& out_grad,
                          Tensor* x_grad,
-                         git Tensor* updates_grad) {
+                         Tensor* updates_grad) {
   if (x_grad) {
-    Copy(ctx, out_grad, ctx.GetPlace(), false, x_grad);
+    set_output<T>(out_grad, x_grad);
   }
   if (updates_grad) {
     // Gradient by Gather: dUpdates = dO[Ids]
